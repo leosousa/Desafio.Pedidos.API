@@ -1,6 +1,6 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Pedidos.Infraestrutura.Database;
+//using Microsoft.EntityFrameworkCore;
+//using Microsoft.Extensions.Configuration;
+//using Pedidos.Infraestrutura.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,13 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 //    db.UseSqlServer(builder.Configuration.GetConnectionString("PedidoConnectionString"), 
 //    builder => builder.MigrationsAssembly("Pedidos.Infraestrutura")));
 
-builder.Services.AddDbContext<PedidoDbContext>(
-    options =>
-        options.UseSqlServer(
-            builder.Configuration.GetConnectionString("PedidoConnectionString"),
-            x => x.MigrationsAssembly("Pedidos.Infraestrutura")
-        )
-);
+//builder.Services.AddDbContext<PedidoDbContext>(
+//    options =>
+//        options.UseSqlServer(
+//            builder.Configuration.GetConnectionString("PedidoConnectionString"),
+//            x => x.MigrationsAssembly("Pedidos.Infraestrutura")
+//        )
+//);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -24,12 +24,8 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 

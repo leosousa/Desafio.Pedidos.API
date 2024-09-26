@@ -16,9 +16,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Pedidos.Dominio\Pedidos.Dominio.csproj" />
-    <ProjectReference Include="..\Pedidos.Infraestrutura\Pedidos.Infraestrutura.csproj" />
-  </ItemGroup>
-
 </Project>
