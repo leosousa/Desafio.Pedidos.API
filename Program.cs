@@ -1,6 +1,21 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Pedidos.Infraestrutura.Database;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+//builder.Services.AddDbContext<PedidoDbContext>(db => 
+//    db.UseSqlServer(builder.Configuration.GetConnectionString("PedidoConnectionString"), 
+//    builder => builder.MigrationsAssembly("Pedidos.Infraestrutura")));
+
+builder.Services.AddDbContext<PedidoDbContext>(
+    options =>
+        options.UseSqlServer(
+            builder.Configuration.GetConnectionString("PedidoConnectionString"),
+            x => x.MigrationsAssembly("Pedidos.Infraestrutura")
+        )
+);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
