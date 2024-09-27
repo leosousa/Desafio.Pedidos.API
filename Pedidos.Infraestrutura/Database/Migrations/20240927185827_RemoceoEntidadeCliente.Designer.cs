@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pedidos.Infraestrutura.Database;
 
@@ -11,9 +12,11 @@ using Pedidos.Infraestrutura.Database;
 namespace Pedidos.Infraestrutura.Database.Migrations
 {
     [DbContext(typeof(PedidoDbContext))]
-    partial class PedidoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240927185827_RemoceoEntidadeCliente")]
+    partial class RemoceoEntidadeCliente
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

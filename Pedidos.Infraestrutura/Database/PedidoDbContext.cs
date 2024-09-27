@@ -6,8 +6,6 @@ namespace Pedidos.Infraestrutura.Database;
 
 public class PedidoDbContext : DbContext
 {
-    public DbSet<Cliente> Clientes { get; set; }
-
     public DbSet<Produto> Produtos { get; set; }
 
     public DbSet<Pedido> Pedidos { get; set; }

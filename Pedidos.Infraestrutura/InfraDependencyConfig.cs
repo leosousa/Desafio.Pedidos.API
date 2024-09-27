@@ -16,8 +16,6 @@ public static class InfraDependencyConfig
         );
 
         services.AddScoped<IProdutoRepository, ProdutoRepository>();
-        services.AddScoped<IClienteRepository, ClienteRepository>();
         services.AddScoped<IPedidoRepository, PedidoRepository>();
-
     }
 }
