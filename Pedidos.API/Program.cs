@@ -1,19 +1,18 @@
-using Microsoft.EntityFrameworkCore;
 using Pedidos.Infraestrutura.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<PedidoDbContext>(db => 
-    db.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")), 
-    ServiceLifetime.Singleton
-);
+builder.Services.AddInfraDependencies(builder.Configuration);
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseUpdateDatabase();
 
 app.UseSwagger();
 app.UseSwaggerUI();
