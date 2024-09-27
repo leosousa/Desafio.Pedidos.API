@@ -2,8 +2,9 @@
 
 public class Pedido : Entidade
 {
-    public int IdCliente { get; private set; }
-    public Cliente Cliente { get; set; }
+    public string NomeCliente { get; set; }
+
+    public string EmailCliente { get; set; }
 
     public bool Pago { get; private set; }
 
@@ -13,11 +14,33 @@ public class Pedido : Entidade
 
     protected Pedido() { }
 
-    public Pedido(int idCliente, bool pago, List<ItemPedido> itens)
+    public Pedido(string nomeCliente, string emailCliente, bool pago, List<ItemPedido> itens)
     {
-        IdCliente = idCliente;
+        NomeCliente = nomeCliente;
+        EmailCliente = emailCliente;
         Pago = pago;
         Itens = itens;
         DataCriacao = DateTime.Now;
+    }
+
+    public void AlterarItens(List<ItemPedido> itens)
+    {
+        Itens.Clear();
+        Itens = itens;
+    }
+
+    public void AlterarEmailCliente(string email)
+    {
+        EmailCliente = email;
+    }
+
+    public void AlterarNomeCliente(string nome)
+    {
+        NomeCliente = nome;
+    }
+
+    public void RealizarPagamento()
+    {
+        Pago = true;
     }
 }

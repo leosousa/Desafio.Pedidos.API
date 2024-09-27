@@ -13,17 +13,21 @@ public class PedidoConfiguracao : IEntityTypeConfiguration<Pedido>
         builder.HasKey(propriedade => propriedade.Id);
 
         builder
+            .Property(propriedade => propriedade.NomeCliente)
+            .IsRequired()
+            .HasMaxLength(255);
+
+        builder
+            .Property(propriedade => propriedade.EmailCliente)
+            .IsRequired()
+            .HasMaxLength(255);
+
+        builder
             .Property(propriedade => propriedade.Pago)
             .IsRequired();
 
         builder
             .Property(propriedade => propriedade.DataCriacao)
-            .IsRequired();
-
-        builder
-            .HasOne(pedido => pedido.Cliente)
-            .WithMany(cliente => cliente.Pedidos)
-            .HasForeignKey(pedido => pedido.IdCliente)
             .IsRequired();
 
         builder

@@ -12,9 +12,8 @@ public class ItemPedido : Entidade
 
     protected ItemPedido() { }
 
-    public ItemPedido(int idPedido, int idProduto, int quantidade)
+    public ItemPedido(int idProduto, int quantidade)
     {
-        IdPedido = idPedido;
         IdProduto = idProduto;
         Quantidade = quantidade;
     }
