@@ -15,4 +15,14 @@ public class Cliente : Entidade
         Nome = nome;
         Email = email;
     }
+
+    public void AlterarNome(string nome)
+    {
+        Nome = nome;
+    }
+
+    public void AlterarEmail(string email)
+    {
+        Email = email;
+    }
 }
