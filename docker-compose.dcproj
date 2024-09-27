@@ -13,5 +13,6 @@
     <None Include="docker-compose.yml" />
     <None Include=".dockerignore" />
     <None Include="Dockerfile" />
+    <None Include="setup.sql" />
   </ItemGroup>
 </Project>

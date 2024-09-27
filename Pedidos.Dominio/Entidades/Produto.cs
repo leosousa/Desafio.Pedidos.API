@@ -15,4 +15,14 @@ public class Produto : Entidade
         Nome = nome;
         Valor = valor;
     }
+
+    public void EditarNome(string nome)
+    {
+        Nome = nome;
+    }
+
+    public void EditarPreco(decimal preco)
+    {
+        Valor = preco;
+    }
 }

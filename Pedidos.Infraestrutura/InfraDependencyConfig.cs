@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Pedidos.Dominio.Contratos;
 using Pedidos.Infraestrutura.Database;
+using Pedidos.Infraestrutura.Repositorios;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -12,5 +14,7 @@ public static class InfraDependencyConfig
             db.UseSqlServer(configuration.GetConnectionString("DefaultConnection")),
             ServiceLifetime.Singleton
         );
+
+        services.AddScoped<IProdutoRepository, ProdutoRepository>();
     }
 }
